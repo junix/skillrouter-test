@@ -32,18 +32,22 @@ export SR_RANK_PATH=/path/to/SkillRouter-Reranker-0.6B
 The `hf-mirror.com` mirror is **broken for these repos**: its `/api/models/...`
 metadata endpoint returns empty and LFS blobs redirect to Xet storage, so
 `from_pretrained` / `snapshot_download` fail with `LocalEntryNotFoundError`.
-The plain `resolve/main/<file>` paths *do* work, so fetch with curl and load
-from disk:
+The plain `resolve/main/<file>` paths *do* work. `scripts/fetch_models.sh`
+fetches them with `aria2c` (single-connection curl gets throttled to ~40 KB/s
+and truncates), then **verifies** no tensor decoded to all-zeros — aria2c
+preallocates the file and silently zero-fills failed segments, yielding a
+right-sized but corrupt checkpoint (zeroed RMSNorm weights → all-zero logits).
 
 ```bash
-scripts/fetch_models.sh          # curls files into ./checkpoints/{emb,rank}
+brew install aria2              # required by the fetch script
+scripts/fetch_models.sh         # -> ./checkpoints/{emb,rank}, integrity-checked
 export SR_EMB_PATH=$PWD/checkpoints/emb
 export SR_RANK_PATH=$PWD/checkpoints/rank
-export HF_HUB_OFFLINE=1           # don't let transformers re-check the Hub
+export HF_HUB_OFFLINE=1          # don't let transformers re-check the Hub
 uv run skillrouter route "..."
 ```
 
-`just demo-local` wraps these env vars for you.
+`just fetch` runs the script; `just demo-local` wraps these env vars for you.
 
 Device is auto-detected (`cuda` > `mps` > `cpu`); override with `--device`.
 
