@@ -1,0 +1,38 @@
+[project]
+name = "skillrouter-test"
+version = "0.1.0"
+description = "CLI to test the SkillRouter retrieve-and-rerank models (pipizhao/SkillRouter-{Embedding,Reranker}-0.6B)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.2",
+    "transformers>=4.51",
+    "typer>=0.12",
+    "rich>=13.0",
+]
+
+[project.scripts]
+skillrouter = "skillrouter_test.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillrouter_test"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 140
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+select = ["F", "B", "ARG", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/test_*.py" = ["ALL"]
