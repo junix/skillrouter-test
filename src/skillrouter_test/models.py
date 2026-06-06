@@ -27,8 +27,10 @@ RERANK_INSTRUCTION = (
 )
 RERANK_SYSTEM = (
     "Judge whether the Document meets the requirements based on the Query and "
-    'the Instruct provided. Answer only "yes" or "no".'
+    'the Instruct provided. Note that the answer can only be "yes" or "no".'
 )
+RERANK_PREFIX = f"<|im_start|>system\n{RERANK_SYSTEM}<|im_end|>\n<|im_start|>user\n"
+RERANK_SUFFIX = "<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
 
 
 @dataclass
@@ -116,23 +118,25 @@ class SkillReranker:
         self.yes_id = self.tokenizer.convert_tokens_to_ids("yes")
         self.no_id = self.tokenizer.convert_tokens_to_ids("no")
 
-    def _prompt(self, query: str, skill: Skill) -> str:
+    def _input_ids(self, query: str, skill: Skill, max_length: int = 4096) -> list[int]:
+        """Build the exact Qwen reranker input: prefix + truncated body + suffix."""
         body = (
             f"<Instruct>: {RERANK_INSTRUCTION}\n\n"
             f"<Query>: {query}\n\n"
             f"<Document>: {skill.as_document()}"
         )
-        return (
-            f"<|im_start|>system\n{RERANK_SYSTEM}<|im_end|>\n"
-            f"<|im_start|>user\n{body}<|im_end|>\n"
-            f"<|im_start|>assistant\n<think></think>"
-        )
+        prefix = self.tokenizer.encode(RERANK_PREFIX, add_special_tokens=False)
+        suffix = self.tokenizer.encode(RERANK_SUFFIX, add_special_tokens=False)
+        mid = self.tokenizer(
+            body, padding=False, truncation=True, max_length=max_length - len(prefix) - len(suffix), return_attention_mask=False
+        )["input_ids"]
+        return prefix + mid + suffix
 
     @torch.no_grad()
     def score(self, query: str, skill: Skill) -> float:
         """Relevance score = logit(yes) - logit(no) at the final position."""
-        enc = self.tokenizer(self._prompt(query, skill), return_tensors="pt").to(self.device)
-        logits = self.model(**enc).logits[:, -1, :]
+        ids = torch.tensor([self._input_ids(query, skill)], device=self.device)
+        logits = self.model(input_ids=ids, attention_mask=torch.ones_like(ids)).logits[:, -1, :]
         return float(logits[0, self.yes_id] - logits[0, self.no_id])
 
     def rerank(self, query: str, skills: list[Skill]) -> list[tuple[int, float]]:

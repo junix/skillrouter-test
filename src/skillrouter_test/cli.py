@@ -111,5 +111,43 @@ def demo(
         console.print(_table(q, rows))
 
 
+@app.command()
+def batch(
+    queries: Path = typer.Argument(..., help="Text file: one query per line (optionally `query\\texpected_skill`)."),
+    skills: Path = typer.Option(None, "--skills", "-s"),
+    top_k: int = typer.Option(20, "--top-k", "-k"),
+    rerank_k: int = typer.Option(5, "--rerank-k", "-r"),
+    device: str = typer.Option("auto", "--device", "-d"),
+) -> None:
+    """Route many queries with a single model load; report Hit@1 if expectations given."""
+    pool = _load_skills(skills)
+    dev = pick_device(device)
+    console.print(f"[dim]device={dev}  pool={len(pool)}  loading models once...[/dim]")
+    enc = SkillEncoder(device=device)
+    rk = SkillReranker(device=device)
+
+    hits = total = 0
+    for line in queries.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        q, _, expected = line.partition("\t")
+        q, expected = q.strip(), expected.strip()
+        retrieved = enc.rank(q, pool)[:top_k]
+        cand = [pool[i] for i, _ in retrieved]
+        reranked = rk.rerank(q, cand)[:rerank_k]
+        rows = [(r + 1, cand[i].name, score) for r, (i, score) in enumerate(reranked)]
+        title = q if not expected else f"{q}   [expect: {expected}]"
+        if expected:
+            total += 1
+            top1 = cand[reranked[0][0]].name
+            ok = top1 == expected
+            hits += ok
+            title = f"[{'green' if ok else 'red'}]{'✓' if ok else '✗'}[/] " + title
+        console.print(_table(title, rows))
+    if total:
+        console.print(f"\n[bold]Hit@1: {hits}/{total} = {hits / total:.0%}[/bold]")
+
+
 if __name__ == "__main__":
     app()

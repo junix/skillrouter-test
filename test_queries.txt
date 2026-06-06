@@ -1,0 +1,12 @@
+transcribe a wav audio file to text using local speech recognition	use-asr
+generate speech audio from text and play it aloud	use-tts
+generate a video from a text prompt with MiniMax	minimax-generate-video
+find arxiv paper ids for a topic	find-paper-ids
+automate clicking buttons in a macOS desktop app via accessibility	use-macbot
+drive the WeChat desktop app to read official account articles	use-wechat
+write a new agent skill with proper structure	write-a-skill
+create a new ADR architecture decision record in Chinese	create-adr
+split an overgrown rust file into submodules	split-rust-module
+transcribe and analyze the next youtube video in my queue	read-next-youtube-video
+add type hints and fix ruff lints across a python project	lint-python
+generate an image from a text description	generate-image
