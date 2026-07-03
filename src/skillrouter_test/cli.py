@@ -40,6 +40,11 @@ def _table(title: str, rows: list[tuple[int, str, float]]) -> Table:
     return t
 
 
+def _rank_rows(ranked: list[tuple[int, float]], skills: list[Skill]) -> list[tuple[int, str, float]]:
+    """Build 1-indexed (rank, skill_name, score) display rows from a (index, score) ranking."""
+    return [(r + 1, skills[i].name, score) for r, (i, score) in enumerate(ranked)]
+
+
 @app.command()
 def retrieve(
     query: str,
@@ -52,7 +57,7 @@ def retrieve(
     console.print(f"[dim]device={pick_device(device)}  pool={len(pool)}  loading encoder...[/dim]")
     enc = SkillEncoder(device=device)
     ranked = enc.rank(query, pool)[:top_k]
-    rows = [(r + 1, pool[i].name, score) for r, (i, score) in enumerate(ranked)]
+    rows = _rank_rows(ranked, pool)
     console.print(_table(f"retrieve  ·  {query!r}", rows))
 
 
@@ -67,7 +72,7 @@ def rerank(
     console.print(f"[dim]device={pick_device(device)}  candidates={len(pool)}  loading reranker...[/dim]")
     rk = SkillReranker(device=device)
     ranked = rk.rerank(query, pool)
-    rows = [(r + 1, pool[i].name, score) for r, (i, score) in enumerate(ranked)]
+    rows = _rank_rows(ranked, pool)
     console.print(_table(f"rerank  ·  {query!r}", rows))
 
 
@@ -89,7 +94,7 @@ def route(
     retrieved = enc.rank(query, pool)[:top_k]
     cand = [pool[i] for i, _ in retrieved]
     reranked = rk.rerank(query, cand)[:rerank_k]
-    rows = [(r + 1, cand[i].name, score) for r, (i, score) in enumerate(reranked)]
+    rows = _rank_rows(reranked, cand)
     console.print(_table(f"route  ·  {query!r}  (top-{top_k} -> rerank top-{rerank_k})", rows))
 
 
@@ -107,7 +112,7 @@ def demo(
         retrieved = enc.rank(q, SAMPLE_SKILLS)
         cand = [SAMPLE_SKILLS[i] for i, _ in retrieved]
         reranked = rk.rerank(q, cand)[:rerank_k]
-        rows = [(r + 1, cand[i].name, score) for r, (i, score) in enumerate(reranked)]
+        rows = _rank_rows(reranked, cand)
         console.print(_table(q, rows))
 
 
@@ -136,7 +141,7 @@ def batch(
         retrieved = enc.rank(q, pool)[:top_k]
         cand = [pool[i] for i, _ in retrieved]
         reranked = rk.rerank(q, cand)[:rerank_k]
-        rows = [(r + 1, cand[i].name, score) for r, (i, score) in enumerate(reranked)]
+        rows = _rank_rows(reranked, cand)
         title = q if not expected else f"{q}   [expect: {expected}]"
         if expected:
             total += 1
