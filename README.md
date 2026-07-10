@@ -15,7 +15,7 @@ against a pool of skills:
 ## Setup
 
 ```bash
-cd ~/projects/models/skillrouter
+cd ~/projects/skill-ops/skillrouter
 uv sync          # installs torch + transformers (large, one-time)
 ```
 
