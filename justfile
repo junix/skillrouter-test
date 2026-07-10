@@ -1,5 +1,16 @@
+install_bin := home_directory() / "sync" / "bin"
+
+default:
+    @just --list
+
 sync:
     uv sync
+
+build: sync
+    uv build
+
+test:
+    uv run pytest
 
 # encoder-only retrieval over the built-in pool
 retrieve query:
@@ -25,3 +36,14 @@ demo-local:
 
 help:
     uv run skillrouter --help
+
+install: build
+    #!/usr/bin/env bash
+    set -euo pipefail
+    mkdir -p "{{ install_bin }}"
+    cat > "{{ install_bin }}/skillrouter" << 'EOF'
+    #!/bin/bash
+    cd "{{ justfile_directory() }}" && uv run skillrouter "$@"
+    EOF
+    chmod +x "{{ install_bin }}/skillrouter"
+    echo "Installed skillrouter to {{ install_bin }}"
