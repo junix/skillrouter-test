@@ -10,6 +10,7 @@ Subcommands:
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import typer
@@ -19,7 +20,17 @@ from rich.table import Table
 from .models import Skill, SkillEncoder, SkillReranker, pick_device
 from .sample_data import SAMPLE_QUERIES, SAMPLE_SKILLS
 
-app = typer.Typer(add_completion=False, help="Test the SkillRouter retrieve-and-rerank models.")
+def _source_path() -> str:
+    here = Path(__file__).resolve()
+    root = next((p for p in [here, *here.parents] if (p / "pyproject.toml").exists()), here)
+    return str(root).replace(os.path.expanduser("~"), "~")
+
+
+app = typer.Typer(
+    add_completion=False,
+    help="Test the SkillRouter retrieve-and-rerank models.",
+    epilog=f"Source: {_source_path()}",
+)
 console = Console()
 
 
