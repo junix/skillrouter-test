@@ -6,6 +6,15 @@ Models:
   - reranker : pipizhao/SkillRouter-Reranker-0.6B    (SR-Rank-0.6B)
 """
 
-from .models import Skill, SkillEncoder, SkillReranker, pick_device
-
+# Lazy: importing the package (e.g. for `skillrouter available` / `doctor`,
+# which must stay fast and not load the model stack) must NOT pull in
+# torch/transformers. The model classes are imported on first attribute access.
 __all__ = ["Skill", "SkillEncoder", "SkillReranker", "pick_device"]
+
+
+def __getattr__(name):
+    if name in __all__:
+        from . import models
+
+        return getattr(models, name)
+    raise AttributeError(f"module 'skillrouter_test' has no attribute {name!r}")
