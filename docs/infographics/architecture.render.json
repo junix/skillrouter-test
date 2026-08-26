@@ -1,0 +1,156 @@
+{
+  "schema_version": "infographic-render/v1",
+  "project": "skillrouter",
+  "snapshot": "f0a7461bb",
+  "canonical_source": "architecture.svg",
+  "semantic_evidence": "architecture.source.json",
+  "dimensions": {
+    "svg": [
+      2000,
+      2920
+    ],
+    "png": [
+      3000,
+      4380
+    ]
+  },
+  "artifacts": {
+    "architecture.svg": {
+      "sha256": "93392fc403444be375e0a58a21f936b814d5f8a4642a8381db40518ef390c758",
+      "bytes": 23107
+    },
+    "architecture.png": {
+      "sha256": "0f83384d0d61a0cca4579c798b65f3f0ace1c8853b8400f6e8c51188da08dda5",
+      "bytes": 890308
+    },
+    "architecture.pdf": {
+      "sha256": "33497b8231cd0c91ba5f943973065037cfc93a1d0c1ffcbe8204c6585f5c676e",
+      "bytes": 3103743
+    },
+    "architecture.lint.png": {
+      "sha256": "a7d9e644ee8fe336a71f32309e6c3869130b22baeb94a95abf78a8e93da56d12",
+      "bytes": 185569
+    },
+    "architecture.source.json": {
+      "sha256": "71b79faf7c68384ba0504a19a640f082d028a6c30a6b53623007365c1efdaac0",
+      "bytes": 7398
+    }
+  },
+  "commands": {
+    "png": "rsvg-convert -w 3000 architecture.svg -o architecture.png",
+    "pdf": "rsvg-convert -f pdf -o architecture.pdf architecture.svg"
+  },
+  "svg_lint": {
+    "tool": "svg-linter 0.1.0",
+    "input_sha256": "93392fc403444be375e0a58a21f936b814d5f8a4642a8381db40518ef390c758",
+    "catalog": {
+      "schema_version": "svg-linter.catalog/v1",
+      "catalog_version": "3",
+      "catalog_hash": "sha256:9079749fd5985a8f505c2a96c7d7dd90a990fb73f9f295c12620f63c338ac333"
+    },
+    "passes": {
+      "error_gate": {
+        "select": [
+          "svg/duplicate-id",
+          "svg/dangling-reference"
+        ],
+        "coverage": {
+          "evaluated": [
+            "svg/dangling-reference",
+            "svg/duplicate-id"
+          ],
+          "not_evaluated": {}
+        },
+        "counts": {},
+        "errors": 0,
+        "total": 0,
+        "viz": null
+      },
+      "hygiene_review": {
+        "select": [
+          "svg/excessive-path-complexity",
+          "svg/unused-definition",
+          "svg/external-resource",
+          "svg/raster-upscale",
+          "svg/open-filled-path"
+        ],
+        "coverage": {
+          "evaluated": [
+            "svg/excessive-path-complexity",
+            "svg/external-resource",
+            "svg/open-filled-path",
+            "svg/raster-upscale",
+            "svg/unused-definition"
+          ],
+          "not_evaluated": {}
+        },
+        "counts": {},
+        "errors": 0,
+        "total": 0,
+        "viz": null
+      },
+      "collision_review": {
+        "select": [
+          "svg/line-overlap",
+          "svg/line-crossing",
+          "svg/line-text-overlap",
+          "svg/text-text-overlap",
+          "svg/canvas-edge-clearance",
+          "svg/ambiguous-junction",
+          "svg/connector-through-shape",
+          "svg/edge-congestion",
+          "svg/filter-clipping-risk",
+          "svg/low-contrast-text"
+        ],
+        "coverage": {
+          "evaluated": [
+            "svg/ambiguous-junction",
+            "svg/canvas-edge-clearance",
+            "svg/connector-through-shape",
+            "svg/edge-congestion",
+            "svg/filter-clipping-risk",
+            "svg/line-crossing",
+            "svg/line-overlap",
+            "svg/line-text-overlap",
+            "svg/low-contrast-text",
+            "svg/text-text-overlap"
+          ],
+          "not_evaluated": {}
+        },
+        "counts": {},
+        "errors": 0,
+        "total": 0,
+        "viz": "architecture.lint.png"
+      }
+    },
+    "path_font_quarantine": [
+      "svg/out-of-bounds",
+      "svg/path-self-crossing",
+      "svg/exact-duplicate-geometry",
+      "svg/outlined-text",
+      "svg/dangling-connector",
+      "svg/marker-overlap",
+      "svg/text-container-overflow",
+      "svg/text-edge-clearance",
+      "svg/shape-shape-overlap",
+      "svg/text-shape-overlap",
+      "svg/tiny-dogleg",
+      "svg/acute-connector-bend",
+      "svg/excessive-bends",
+      "svg/alignment-outlier",
+      "svg/spacing-outlier",
+      "svg/size-outlier",
+      "svg/container-padding-outlier",
+      "svg/font-style-outlier"
+    ],
+    "error_gate_clean": true,
+    "collision_findings": 0
+  },
+  "review": {
+    "unannotated_png": "architecture.png",
+    "numbered_lint_png": "architecture.lint.png",
+    "template_self_audit": "fixed bands, bounded wrapped text, stable unique IDs, no external resources",
+    "manual_review": "reviewed via six original and six numbered-lint contact sheets plus enlarged extreme-case inspection on 2026-08-26"
+  },
+  "replaced": []
+}
