@@ -1,0 +1,259 @@
+{
+  "schema_version": "repository-architecture-infographic/v1",
+  "meta": {
+    "project": "skillrouter",
+    "snapshot": "f0a7461bb",
+    "generated": "2026-08-26",
+    "language": "zh-CN",
+    "audience": "新贡献者、架构评审者与下游集成方",
+    "thesis": "把仓库的真实入口、实现分区、可执行用法与验证证据放在一条可回查的阅读路径上。",
+    "canonical_source": "docs/infographics/architecture.svg"
+  },
+  "narrative": {
+    "reader_question": "skillrouter 的代码从哪里进入、由哪些分区构成、怎样运行并如何验证？",
+    "order": [
+      "项目指纹",
+      "架构地形",
+      "使用路径",
+      "规模与依赖",
+      "验证与溯源"
+    ],
+    "inference_policy": "文件、计数、命令与依赖是仓库事实；职责名称仅按路径命名归类，均显式标注为推断。"
+  },
+  "sources": {
+    "readme": "README.md",
+    "readme_excerpt": [
+      "A small CLI to exercise the SkillRouter retrieve-and-rerank pipeline from the paper SkillRouter: Skill Routing for LLM Agents at Scale (arXiv:2603.22455).",
+      "It loads the two released 0.6B checkpoints and lets you route a task query against a pool of skills:"
+    ],
+    "manifests": [
+      "justfile",
+      "pyproject.toml"
+    ],
+    "tracked_file_formula": "git ls-files，排除构建/依赖目录",
+    "line_formula": "逐个已跟踪源码文件统计非空文本行；不等同于语句数或复杂度",
+    "component_formula": "按源码路径首个职责分区聚合；角色名由路径关键词推断",
+    "entrypoint_formula": "按常见入口文件名与 bin/cmd/cli/app 路径定位候选；路径存在是事实，入口职责仍需源码确认"
+  },
+  "facts": {
+    "description": "A small CLI to exercise the SkillRouter retrieve-and-rerank pipeline from the paper SkillRouter: Skill Routing for LLM Agents at Scale (arXiv:2603.22455).",
+    "tracked_files": 22,
+    "source_files": 13,
+    "source_nonblank_lines": 1805,
+    "languages": [
+      {
+        "name": "Python",
+        "files": 12,
+        "nonblank_lines": 1730,
+        "share": 0.9584
+      },
+      {
+        "name": "Shell",
+        "files": 1,
+        "nonblank_lines": 75,
+        "share": 0.0416
+      }
+    ],
+    "entrypoints": [
+      "src/skillrouter_test/cli.py"
+    ],
+    "components": [
+      {
+        "id": "component-1",
+        "label": "skillrouter_test/cli",
+        "role": "入口与编排",
+        "file_count": 1,
+        "nonblank_lines": 233,
+        "examples": [
+          "src/skillrouter_test/cli.py"
+        ]
+      },
+      {
+        "id": "component-2",
+        "label": "skillrouter_test/weights",
+        "role": "验证边界",
+        "file_count": 1,
+        "nonblank_lines": 174,
+        "examples": [
+          "src/skillrouter_test/weights.py"
+        ]
+      },
+      {
+        "id": "component-3",
+        "label": "skillrouter_test/models",
+        "role": "核心语义",
+        "file_count": 1,
+        "nonblank_lines": 117,
+        "examples": [
+          "src/skillrouter_test/models.py"
+        ]
+      },
+      {
+        "id": "component-4",
+        "label": "scripts/fetch_models",
+        "role": "核心语义",
+        "file_count": 1,
+        "nonblank_lines": 75,
+        "examples": [
+          "scripts/fetch_models.sh"
+        ]
+      },
+      {
+        "id": "component-5",
+        "label": "skillrouter_test/sample_data",
+        "role": "验证边界",
+        "file_count": 1,
+        "nonblank_lines": 58,
+        "examples": [
+          "src/skillrouter_test/sample_data.py"
+        ]
+      },
+      {
+        "id": "component-6",
+        "label": "skillrouter_test",
+        "role": "验证边界",
+        "file_count": 1,
+        "nonblank_lines": 15,
+        "examples": [
+          "src/skillrouter_test/__init__.py"
+        ]
+      }
+    ],
+    "static_edges": [
+      {
+        "from": "skillrouter_test",
+        "to": "skillrouter_test/models",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/cli",
+        "to": "skillrouter_test/weights",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/cli",
+        "to": "skillrouter_test/models",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/cli",
+        "to": "skillrouter_test/sample_data",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/cli",
+        "to": "skillrouter_test",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/sample_data",
+        "to": "skillrouter_test/models",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/weights",
+        "to": "skillrouter_test/models",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      },
+      {
+        "from": "skillrouter_test/weights",
+        "to": "skillrouter_test",
+        "evidence_files": 1,
+        "method": "静态导入/模块声明匹配"
+      }
+    ],
+    "dependencies": [
+      "torch",
+      "transformers",
+      "typer",
+      "rich"
+    ],
+    "commands": [
+      "just build",
+      "just test",
+      "just install",
+      "just demo",
+      "just default",
+      "just sync",
+      "just retrieve",
+      "cd ~/projects/skill-ops/skillrouter"
+    ],
+    "test_files": 8,
+    "test_examples": [
+      "test_queries.txt",
+      "tests/test_as_document.py",
+      "tests/test_cli.py",
+      "tests/test_device_and_dtype.py",
+      "tests/test_load_skills.py",
+      "tests/test_pooling.py",
+      "tests/test_rank_rows.py",
+      "tests/test_weights.py"
+    ],
+    "manifest_count": 2,
+    "largest_files": [
+      {
+        "path": "tests/test_weights.py",
+        "language": "Python",
+        "lines": 697,
+        "nonblank_lines": 510,
+        "group": "tests"
+      },
+      {
+        "path": "src/skillrouter_test/cli.py",
+        "language": "Python",
+        "lines": 284,
+        "nonblank_lines": 233,
+        "group": "src/skillrouter_test"
+      },
+      {
+        "path": "tests/test_cli.py",
+        "language": "Python",
+        "lines": 311,
+        "nonblank_lines": 231,
+        "group": "tests"
+      },
+      {
+        "path": "src/skillrouter_test/weights.py",
+        "language": "Python",
+        "lines": 218,
+        "nonblank_lines": 174,
+        "group": "src/skillrouter_test"
+      },
+      {
+        "path": "src/skillrouter_test/models.py",
+        "language": "Python",
+        "lines": 146,
+        "nonblank_lines": 117,
+        "group": "src/skillrouter_test"
+      },
+      {
+        "path": "tests/test_pooling.py",
+        "language": "Python",
+        "lines": 128,
+        "nonblank_lines": 102,
+        "group": "tests"
+      },
+      {
+        "path": "tests/test_rank_rows.py",
+        "language": "Python",
+        "lines": 117,
+        "nonblank_lines": 82,
+        "group": "tests"
+      },
+      {
+        "path": "scripts/fetch_models.sh",
+        "language": "Shell",
+        "lines": 82,
+        "nonblank_lines": 75,
+        "group": "scripts"
+      }
+    ]
+  }
+}
