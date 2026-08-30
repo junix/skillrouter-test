@@ -1,152 +1,156 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2920" viewBox="0 0 2000 2920" role="img" aria-labelledby="svg-title svg-desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="3000" viewBox="0 0 2000 3000" role="img" aria-labelledby="svg-title svg-desc">
 <title id="svg-title">skillrouter 架构信息图</title>
-<desc id="svg-desc">skillrouter 的独立长幅架构信息图，展示项目指纹、源码分区、真实使用命令、规模、依赖和验证证据。</desc>
+<desc id="svg-desc">skillrouter 的独立长幅架构信息图，展示项目指纹、源码分区与静态依赖、真实使用命令、规模、依赖和验证证据。</desc>
 <defs>
   <marker id="arrow-ocean" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L11,6 L1,11 Z" fill="#245DCC"/></marker>
+  <marker id="arrow-soft" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L8,4.5 L1,8 Z" fill="#8FA9DF"/></marker>
   <linearGradient id="hero-wash" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9F0FE"/><stop offset="1" stop-color="#E2F4F1"/></linearGradient>
 </defs>
-<rect x="0" y="0" width="2000" height="2920" rx="0" fill="#F6F8FC"/>
+<rect x="0" y="0" width="2000" height="480" rx="0" fill="#F6F8FC"/>
 <rect id="hero-field" x="46" y="42" width="1908" height="322" rx="34" fill="url(#hero-wash)"/>
 <text x="78" y="96" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2.2">PROJECT ARCHITECTURE · 独立信息图</text>
 <text id="project-title" x="78" y="174" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="62" font-weight="750" text-anchor="start">skillrouter</text>
-<text id="hero-thesis" x="78" y="230" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="400" text-anchor="start"><tspan x="78" dy="0">把仓库的真实入口、实现分区、可执行用法与验证证据放在一条可回查的阅读路径上。</tspan></text>
+<text id="hero-thesis" x="78" y="230" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="400" text-anchor="start"><tspan x="78" dy="0">把仓库的真实入口、实现分区、真实依赖与验证证据放在一条可回查的阅读路径上。</tspan></text>
 <circle id="source-orbit" cx="1742" cy="184" r="104" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
 <text x="1742" y="175" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="46" font-weight="750" text-anchor="middle">13</text>
-<text x="1742" y="215" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="middle">源码文件</text>
-<text x="1908" y="330" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">快照 f0a7461bb</text>
+<text x="1742" y="215" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="middle">源码文件</text>
+<text x="1908" y="330" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">快照 1bd8ce3dd · 生成 2026-08-30</text>
 <rect x="78" y="298" width="195" height="48" rx="24" fill="#E9F0FE"/>
-<text x="175.5" y="331" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">22 tracked files</text>
+<text x="175.5" y="331" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">29 tracked files</text>
 <rect x="287" y="298" width="154" height="48" rx="24" fill="#E2F4F1"/>
 <text x="364.0" y="331" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">8 test files</text>
 <rect x="455" y="298" width="144" height="48" rx="24" fill="#FAEEDB"/>
 <text x="527.0" y="331" fill="#9B5B09" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">2 manifests</text>
-<text x="76" y="430" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">01</text>
-<text x="146" y="432" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">项目指纹</text>
-<text x="146" y="474" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">README 语境 + 语言规模；数字来自当前 Git 快照。</text>
-<text id="readme-description" x="78" y="548" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="400" text-anchor="start"><tspan x="78" dy="0">A small CLI to exercise the SkillRouter retrieve-and-rerank</tspan><tspan x="78" dy="40.5">pipeline from the paper SkillRouter: Skill Routing for LLM</tspan><tspan x="78" dy="40.5">Agents at Scale (arXiv:2603.22455).</tspan></text>
-<text x="1190" y="486" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="24" font-weight="650" text-anchor="start">非空源码行分布</text>
-<rect id="language-bar-1" x="1190" y="516" width="671" height="24" rx="12" fill="#245DCC"/>
-<rect id="language-bar-2" x="1861" y="516" width="29" height="24" rx="12" fill="#137B73"/>
-<circle cx="1198" cy="571" r="8" fill="#245DCC"/>
-<text x="1218" y="578" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">Python · 12f · 1,730L</text>
-<circle cx="1548" cy="571" r="8" fill="#137B73"/>
-<text x="1568" y="578" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">Shell · 1f · 75L</text>
-<text x="76" y="720" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">02</text>
-<text x="146" y="722" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">架构地形</text>
-<text x="146" y="764" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">主脊线表示源码阅读顺序；分区职责按路径名称推断，不冒充运行时调用。</text>
-<path id="spine-step-1" d="M324 942 C419 942, 391 984, 486 984" fill="none" stroke="#245DCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ocean)"/>
-<path id="spine-step-2" d="M618 980 C713 980, 689 923, 784 923" fill="none" stroke="#245DCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ocean)"/>
-<path id="spine-step-3" d="M913 924 C1008 924, 986 991, 1081 991" fill="none" stroke="#245DCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ocean)"/>
-<path id="spine-step-4" d="M1210 995 C1305 995, 1281 935, 1376 935" fill="none" stroke="#245DCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ocean)"/>
-<path id="spine-step-5" d="M1508 927 C1603 927, 1575 971, 1670 971" fill="none" stroke="#245DCC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-ocean)"/>
-<circle id="component-1" cx="260" cy="925" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="260" y="935" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">01</text>
-<text id="component-label-1" x="260" y="833" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="260" dy="0">skillrouter_test</tspan><tspan x="260" dy="27.5">/cli</tspan></text>
-<text x="260" y="893" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">入口与编排 · 1 files</text>
-<circle id="component-2" cx="556" cy="1002" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="556" y="1012" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">02</text>
-<text id="component-label-2" x="556" y="1090" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="556" dy="0">skillrouter_test/weig</tspan><tspan x="556" dy="27.5">hts</tspan></text>
-<text x="556" y="1150" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">验证边界 · 1 files</text>
-<circle id="component-3" cx="852" cy="900" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="852" y="910" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">03</text>
-<text id="component-label-3" x="852" y="808" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="852" dy="0">skillrouter_test/mode</tspan><tspan x="852" dy="27.5">ls</tspan></text>
-<text x="852" y="868" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">核心语义 · 1 files</text>
-<circle id="component-4" cx="1148" cy="1018" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="1148" y="1028" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">04</text>
-<text id="component-label-4" x="1148" y="1106" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1148" dy="0">scripts/fetch_models</tspan></text>
-<text x="1148" y="1138" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">核心语义 · 1 files</text>
-<circle id="component-5" cx="1444" cy="910" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="1444" y="920" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">05</text>
-<text id="component-label-5" x="1444" y="818" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1444" dy="0">skillrouter_test/samp</tspan><tspan x="1444" dy="27.5">le_data</tspan></text>
-<text x="1444" y="878" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">验证边界 · 1 files</text>
-<circle id="component-6" cx="1740" cy="990" r="58" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
-<text x="1740" y="1000" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="750" text-anchor="middle">06</text>
-<text id="component-label-6" x="1740" y="1078" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1740" dy="0">skillrouter_test</tspan></text>
-<text x="1740" y="1110" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="middle">验证边界 · 1 files</text>
-<text x="82" y="1198" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">入口候选（路径证据）</text>
-<text x="82" y="1242" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">→ src/skillrouter_test/cli.py</text>
-<text x="1040" y="1198" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">跨分区静态引用</text>
-<text x="1040" y="1242" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">skillrouter_test → skillrouter_test/models · 1 files</text>
-<text x="1040" y="1280" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">skillrouter_test/cli → skillrouter_test/weights · 1 files</text>
-<text x="1040" y="1318" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">skillrouter_test/cli → skillrouter_test/models · 1 files</text>
-<rect id="architecture-caveat" x="78" y="1364" width="1844" height="56" rx="14" fill="#FFFFFF" stroke="#D7DFE9" stroke-width="2"/>
-<text x="100" y="1401" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="start">读图规则：实心蓝脊线 = 证据导航；“职责”文字 = 路径命名推断；静态引用 ≠ 运行时顺序。</text>
-<text x="76" y="1498" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">03</text>
-<text x="146" y="1500" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">使用路径</text>
-<text x="146" y="1542" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">只展示 README、manifest 或 justfile 中实际存在的命令/入口。</text>
-<line x1="126" y1="1626" x2="126" y2="1642" stroke="#B9CAE8" stroke-width="8"/>
-<line x1="126" y1="1694" x2="126" y2="1710" stroke="#B9CAE8" stroke-width="8"/>
-<line x1="126" y1="1762" x2="126" y2="1778" stroke="#B9CAE8" stroke-width="8"/>
-<line x1="126" y1="1830" x2="126" y2="1846" stroke="#B9CAE8" stroke-width="8"/>
-<line x1="126" y1="1898" x2="126" y2="1914" stroke="#B9CAE8" stroke-width="8"/>
-<circle id="usage-step-1" cx="126" cy="1600" r="25" fill="#245DCC" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1609" fill="#FFFFFF" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">1</text>
-<text id="usage-command-1" x="184" y="1609" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just build</text>
-<circle id="usage-step-2" cx="126" cy="1668" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1677" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">2</text>
-<text id="usage-command-2" x="184" y="1677" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just test</text>
-<circle id="usage-step-3" cx="126" cy="1736" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1745" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">3</text>
-<text id="usage-command-3" x="184" y="1745" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just install</text>
-<circle id="usage-step-4" cx="126" cy="1804" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1813" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">4</text>
-<text id="usage-command-4" x="184" y="1813" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just demo</text>
-<circle id="usage-step-5" cx="126" cy="1872" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1881" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">5</text>
-<text id="usage-command-5" x="184" y="1881" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just default</text>
-<circle id="usage-step-6" cx="126" cy="1940" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
-<text x="126" y="1949" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">6</text>
-<text id="usage-command-6" x="184" y="1949" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just sync</text>
-<text x="1300" y="1558" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">入口定位</text>
-<text x="1300" y="1602" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">1. src/skillrouter_test/cli.py</text>
-<text x="76" y="2050" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">04</text>
-<text x="146" y="2052" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">规模、热点与外部边界</text>
-<text x="146" y="2094" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">条形长度编码非空源码行；它描述阅读成本，不代表业务重要性。</text>
-<text x="82" y="2150" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/cli</text>
-<rect x="382" y="2131" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-1" x="382" y="2131" width="540" height="25" rx="12" fill="#137B73"/>
-<text x="1012" y="2152" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">233</text>
-<text x="82" y="2208" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/weights</text>
-<rect x="382" y="2189" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-2" x="382" y="2189" width="403" height="25" rx="12" fill="#245DCC"/>
-<text x="1012" y="2210" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">174</text>
-<text x="82" y="2266" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/models</text>
-<rect x="382" y="2247" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-3" x="382" y="2247" width="271" height="25" rx="12" fill="#245DCC"/>
-<text x="1012" y="2268" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">117</text>
-<text x="82" y="2324" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">scripts/fetch_models</text>
-<rect x="382" y="2305" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-4" x="382" y="2305" width="174" height="25" rx="12" fill="#245DCC"/>
-<text x="1012" y="2326" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">75</text>
-<text x="82" y="2382" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/sample_data</text>
-<rect x="382" y="2363" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-5" x="382" y="2363" width="134" height="25" rx="12" fill="#245DCC"/>
-<text x="1012" y="2384" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">58</text>
-<text x="82" y="2440" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test</text>
-<rect x="382" y="2421" width="540" height="25" rx="12" fill="#E2E8F1"/>
-<rect id="component-bar-6" x="382" y="2421" width="35" height="25" rx="12" fill="#245DCC"/>
-<text x="1012" y="2442" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">15</text>
-<text x="1120" y="2128" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">直接依赖（manifest）</text>
-<rect id="dependency-1" x="1120" y="2166" width="350" height="48" rx="24" fill="#EEE8FA"/>
-<text x="1295.0" y="2199" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">torch</text>
-<rect id="dependency-2" x="1510" y="2166" width="350" height="48" rx="24" fill="#EEE8FA"/>
-<text x="1685.0" y="2199" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">transformers</text>
-<rect id="dependency-3" x="1120" y="2224" width="350" height="48" rx="24" fill="#EEE8FA"/>
-<text x="1295.0" y="2257" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">typer</text>
-<rect id="dependency-4" x="1510" y="2224" width="350" height="48" rx="24" fill="#EEE8FA"/>
-<text x="1685.0" y="2257" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">rich</text>
-<text x="76" y="2544" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">05</text>
-<text x="146" y="2546" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">验证与溯源</text>
-<text x="146" y="2588" fill="#566678" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">测试路径、构建清单与快照共同限定这张图可以声称什么。</text>
-<text x="82" y="2616" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">测试证据</text>
-<text x="82" y="2658" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• test_queries.txt</text>
-<text x="82" y="2692" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• tests/test_as_document.py</text>
-<text x="82" y="2726" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• tests/test_cli.py</text>
-<text x="82" y="2760" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• tests/test_device_and_dtype.py</text>
-<text x="1060" y="2616" fill="#9B5B09" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">构建 / 依赖证据</text>
-<text x="1060" y="2658" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• justfile</text>
-<text x="1060" y="2692" fill="#566678" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">• pyproject.toml</text>
-<rect id="provenance-band" x="46" y="2820" width="1908" height="64" rx="20" fill="#172330"/>
-<text x="78" y="2862" fill="#FFFFFF" font-family="Menlo, Cascadia Mono, monospace" font-size="18" font-weight="400" text-anchor="start">来源：Git f0a7461bb · README.md · 2 manifests · 8 test files</text>
-<text x="1920" y="2862" fill="#D8E5FA" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="17" font-weight="400" text-anchor="end">事实与推断分色 · 生成值见 architecture.source.json</text>
+<text x="76" y="470" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">01</text>
+<text x="146" y="472" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">项目指纹</text>
+<text x="146" y="514" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">README 语境 + 语言规模；数字来自当前 Git 快照。</text>
+<text id="readme-description" x="78" y="588" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="27" font-weight="400" text-anchor="start"><tspan x="78" dy="0">Stage Model Role ------------------------------------------------------</tspan><tspan x="78" dy="40.5">------------------------------- encoder</tspan><tspan x="78" dy="40.5">pipizhao/SkillRouter-Embedding-0.6B retrieve top-K from the full pool…</tspan></text>
+<text x="1190" y="526" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="24" font-weight="650" text-anchor="start">非空源码行分布</text>
+<rect id="language-bar-1" x="1190" y="558" width="671" height="24" rx="12" fill="#245DCC"/>
+<rect id="language-bar-2" x="1861" y="558" width="29" height="24" rx="12" fill="#137B73"/>
+<circle cx="1198" cy="613" r="8" fill="#245DCC"/>
+<text x="1218" y="620" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">Python · 12f · 1,730L</text>
+<circle cx="1548" cy="613" r="8" fill="#137B73"/>
+<text x="1568" y="620" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">Shell · 1f · 75L</text>
+<text x="76" y="762" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">02</text>
+<text x="146" y="764" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">架构地形</text>
+<text x="146" y="806" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">横轴蓝线 = 建议阅读顺序；上方弧线 = 源码静态导入证据（未检出则不画）。</text>
+<path id="static-edge-1" d="M124 960 L124 882 L1850 882 L1850 964" fill="none" stroke="#8FA9DF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-soft)" opacity="0.9"/>
+<path id="static-edge-2" d="M136 960 L136 892 L1170 892 L1170 977" fill="none" stroke="#8FA9DF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-soft)" opacity="0.9"/>
+<path id="static-edge-3" d="M148 960 L148 902 L830 902 L830 970" fill="none" stroke="#8FA9DF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-soft)" opacity="0.9"/>
+<path id="static-edge-4" d="M160 960 L160 912 L490 912 L490 960" fill="none" stroke="#8FA9DF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-soft)" opacity="0.9"/>
+<text x="1908" y="856" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="20" font-weight="400" text-anchor="end">静态导入 · 4 个目标 ←「skillrouter_test/cli」（全量见 source.json）</text>
+<line x1="212" y1="1026" x2="424" y2="1026" stroke="#245DCC" stroke-width="3" marker-end="url(#arrow-ocean)"/>
+<line x1="548" y1="1026" x2="774" y2="1026" stroke="#245DCC" stroke-width="3" marker-end="url(#arrow-ocean)"/>
+<line x1="878" y1="1026" x2="1121" y2="1026" stroke="#245DCC" stroke-width="3" marker-end="url(#arrow-ocean)"/>
+<line x1="1211" y1="1026" x2="1452" y2="1026" stroke="#245DCC" stroke-width="3" marker-end="url(#arrow-ocean)"/>
+<line x1="1560" y1="1026" x2="1788" y2="1026" stroke="#245DCC" stroke-width="3" marker-end="url(#arrow-ocean)"/>
+<circle id="component-1" cx="150" cy="1026" r="56" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="150" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">01</text>
+<circle id="component-2" cx="490" cy="1026" r="52" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="490" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">02</text>
+<circle id="component-5" cx="830" cy="1026" r="42" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="830" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">03</text>
+<circle id="component-6" cx="1170" cy="1026" r="35" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="1170" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">04</text>
+<circle id="component-4" cx="1510" cy="1026" r="44" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="1510" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">05</text>
+<circle id="component-3" cx="1850" cy="1026" r="48" fill="#FFFFFF" stroke="#245DCC" stroke-width="5"/>
+<text x="1850" y="1035" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="25" font-weight="750" text-anchor="middle">06</text>
+<text id="component-label-1" x="150" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="150" dy="0">skillrouter_test/cli</tspan></text>
+<text x="150" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">入口与编排 · 1 files · 233L</text>
+<text id="component-label-2" x="490" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="490" dy="0">skillrouter_test/weight</tspan><tspan x="490" dy="27.5">s</tspan></text>
+<text x="490" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">验证边界 · 1 files · 174L</text>
+<text id="component-label-3" x="830" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="830" dy="0">skillrouter_test/sample</tspan><tspan x="830" dy="27.5">_data</tspan></text>
+<text x="830" y="1200" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">验证边界 · 1 files · 58L</text>
+<text id="component-label-4" x="1170" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1170" dy="0">skillrouter_test</tspan></text>
+<text x="1170" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">验证边界 · 1 files · 15L</text>
+<text id="component-label-5" x="1510" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1510" dy="0">scripts/fetch_models</tspan></text>
+<text x="1510" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1 files · 75L</text>
+<text id="component-label-6" x="1850" y="1138" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="middle"><tspan x="1850" dy="0">skillrouter_test/models</tspan></text>
+<text x="1850" y="1172" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="19" font-weight="400" text-anchor="middle">核心语义 · 1 files · 117L</text>
+<rect id="architecture-caveat" x="78" y="1238" width="1844" height="56" rx="14" fill="#FFFFFF" stroke="#D7DFE9" stroke-width="2"/>
+<text x="100" y="1274" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="400" text-anchor="start">读图规则：横轴蓝线 = 证据导航顺序；弧线 = 静态导入；“职责”文字 = 路径命名推断；静态引用 ≠ 运行时顺序。</text>
+<text x="76" y="1356" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">03</text>
+<text x="146" y="1358" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">使用路径</text>
+<text x="146" y="1400" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">只展示 README、manifest 或 justfile 中实际存在的命令/入口。</text>
+<line x1="126" y1="1484" x2="126" y2="1500" stroke="#B9CAE8" stroke-width="8"/>
+<line x1="126" y1="1552" x2="126" y2="1568" stroke="#B9CAE8" stroke-width="8"/>
+<line x1="126" y1="1620" x2="126" y2="1636" stroke="#B9CAE8" stroke-width="8"/>
+<line x1="126" y1="1688" x2="126" y2="1704" stroke="#B9CAE8" stroke-width="8"/>
+<line x1="126" y1="1756" x2="126" y2="1772" stroke="#B9CAE8" stroke-width="8"/>
+<circle id="usage-step-1" cx="126" cy="1458" r="25" fill="#245DCC" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1467" fill="#FFFFFF" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">1</text>
+<text id="usage-command-1" x="184" y="1467" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just build</text>
+<circle id="usage-step-2" cx="126" cy="1526" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1535" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">2</text>
+<text id="usage-command-2" x="184" y="1535" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just test</text>
+<circle id="usage-step-3" cx="126" cy="1594" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1603" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">3</text>
+<text id="usage-command-3" x="184" y="1603" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just install</text>
+<circle id="usage-step-4" cx="126" cy="1662" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1671" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">4</text>
+<text id="usage-command-4" x="184" y="1671" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just demo</text>
+<circle id="usage-step-5" cx="126" cy="1730" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1739" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">5</text>
+<text id="usage-command-5" x="184" y="1739" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just default</text>
+<circle id="usage-step-6" cx="126" cy="1798" r="25" fill="#FFFFFF" stroke="#245DCC" stroke-width="3"/>
+<text x="126" y="1807" fill="#173F91" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="750" text-anchor="middle">6</text>
+<text id="usage-command-6" x="184" y="1807" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="21" font-weight="400" text-anchor="start">just sync</text>
+<text x="1300" y="1416" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">入口定位</text>
+<text x="1300" y="1460" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">1. src/skillrouter_test/cli.py</text>
+<text x="76" y="1902" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">04</text>
+<text x="146" y="1904" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">规模、热点与外部边界</text>
+<text x="146" y="1946" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">条形长度编码非空源码行；它描述阅读成本，不代表业务重要性。</text>
+<text x="82" y="2010" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/cli</text>
+<rect x="382" y="1991" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-1" x="382" y="1991" width="540" height="25" rx="12" fill="#137B73"/>
+<text x="1012" y="2012" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">233</text>
+<text x="82" y="2068" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/weights</text>
+<rect x="382" y="2049" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-2" x="382" y="2049" width="403" height="25" rx="12" fill="#245DCC"/>
+<text x="1012" y="2070" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">174</text>
+<text x="82" y="2126" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/sample_data</text>
+<rect x="382" y="2107" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-3" x="382" y="2107" width="134" height="25" rx="12" fill="#245DCC"/>
+<text x="1012" y="2128" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">58</text>
+<text x="82" y="2184" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test</text>
+<rect x="382" y="2165" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-4" x="382" y="2165" width="35" height="25" rx="12" fill="#245DCC"/>
+<text x="1012" y="2186" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">15</text>
+<text x="82" y="2242" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">scripts/fetch_models</text>
+<rect x="382" y="2223" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-5" x="382" y="2223" width="174" height="25" rx="12" fill="#245DCC"/>
+<text x="1012" y="2244" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">75</text>
+<text x="82" y="2300" fill="#172330" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">skillrouter_test/models</text>
+<rect x="382" y="2281" width="540" height="25" rx="12" fill="#E2E8F1"/>
+<rect id="component-bar-6" x="382" y="2281" width="271" height="25" rx="12" fill="#245DCC"/>
+<text x="1012" y="2302" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="end">117</text>
+<text x="1120" y="1972" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">直接依赖（manifest）</text>
+<rect id="dependency-1" x="1120" y="2010" width="350" height="48" rx="24" fill="#EEE8FA"/>
+<text x="1295.0" y="2043" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">torch</text>
+<rect id="dependency-2" x="1510" y="2010" width="350" height="48" rx="24" fill="#EEE8FA"/>
+<text x="1685.0" y="2043" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">transformers</text>
+<rect id="dependency-3" x="1120" y="2068" width="350" height="48" rx="24" fill="#EEE8FA"/>
+<text x="1295.0" y="2101" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">typer</text>
+<rect id="dependency-4" x="1510" y="2068" width="350" height="48" rx="24" fill="#EEE8FA"/>
+<text x="1685.0" y="2101" fill="#6741B4" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="21" font-weight="600" text-anchor="middle">rich</text>
+<text x="76" y="2406" fill="#245DCC" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start" letter-spacing="2">05</text>
+<text x="146" y="2408" fill="#172330" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="38" font-weight="700" text-anchor="start">验证与溯源</text>
+<text x="146" y="2450" fill="#4E5F72" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="23" font-weight="400" text-anchor="start">测试路径、构建清单、最近提交与快照共同限定这张图可以声称什么。</text>
+<text x="82" y="2500" fill="#137B73" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">测试证据</text>
+<text x="82" y="2534" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• test_queries.txt</text>
+<text x="82" y="2568" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• tests/test_as_document.py</text>
+<text x="82" y="2602" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• tests/test_cli.py</text>
+<text x="82" y="2636" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• tests/test_device_and_dtype.py</text>
+<text x="1060" y="2500" fill="#9B5B09" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">构建 / 依赖证据</text>
+<text x="1060" y="2534" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• justfile</text>
+<text x="1060" y="2568" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">• pyproject.toml</text>
+<text x="82" y="2700" fill="#A33D57" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="22" font-weight="700" text-anchor="start">最近提交</text>
+<text x="82" y="2738" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-29 · docs: 更新架构文档</text>
+<text x="82" y="2772" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-29 · docs: 架构文档英文内容翻译为中文</text>
+<text x="82" y="2806" fill="#4E5F72" font-family="Menlo, Cascadia Mono, monospace" font-size="20" font-weight="400" text-anchor="start">2026-08-26 · docs: relocate architecture infographic to docs/infographics</text>
+<rect id="provenance-band" x="46" y="2890" width="1908" height="64" rx="20" fill="#172330"/>
+<text x="78" y="2931" fill="#FFFFFF" font-family="Menlo, Cascadia Mono, monospace" font-size="19" font-weight="400" text-anchor="start">来源：Git 1bd8ce3dd · README.md · 2 manifests · 8 test files</text>
+<text x="1922" y="2931" fill="#E2ECFB" font-family="Source Han Sans SC, PingFang SC, sans-serif" font-size="18" font-weight="400" text-anchor="end">事实与推断分色 · 生成值见 architecture.source.json</text>
 </svg>
