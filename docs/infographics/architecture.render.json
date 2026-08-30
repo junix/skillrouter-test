@@ -1,7 +1,7 @@
 {
   "schema_version": "infographic-render/v2",
   "project": "skillrouter",
-  "snapshot": "1bd8ce3dd",
+  "snapshot": "def1400f8",
   "canonical_source": "architecture.svg",
   "semantic_evidence": "architecture.source.json",
   "dimensions": {
@@ -16,24 +16,24 @@
   },
   "artifacts": {
     "architecture.svg": {
-      "sha256": "1d0cfc67e3735d2c4fad656b6006ec759c89935572f8e9115c7d0e0b019dc1d0",
-      "bytes": 23667
+      "sha256": "4b6596741f72bbe3c042e9ae3547a7fe2e9e435b60de60f4d57d0a30904b26c1",
+      "bytes": 23675
     },
     "architecture.png": {
-      "sha256": "0ef2ba713b2b39e2e3e70bf78ae8e0e6396facb853c1876b45483140843db101",
-      "bytes": 905079
+      "sha256": "dcd67fc244d5ed29a9c099cbfdf0715396c0286ada21cf0790e17212bda413ce",
+      "bytes": 914024
     },
     "architecture.pdf": {
-      "sha256": "07fdb64c3108f2bbd8c0044ce1f53a74f4345a537ac8c1f1f6c412fe94f22e06",
-      "bytes": 708112
+      "sha256": "b55c45394b3625e49a84d276af4c696a8f23926604206fc811391c340ab85e82",
+      "bytes": 722848
     },
     "architecture.lint.png": {
-      "sha256": "0ddbe3657a6fb62a7eedc8488d17fbbba4a7b27107f69411e8d43f21a15a3fce",
-      "bytes": 169467
+      "sha256": "37e170d9a5b270f5f12667fe981eaad5688ea078f323d6387a95d2b3f5cebe24",
+      "bytes": 170433
     },
     "architecture.source.json": {
-      "sha256": "b782c3d34e9557073b7d26c1b660b65a0724729fc72aa91cb32a8cb47d72c8eb",
-      "bytes": 8179
+      "sha256": "ffa78dc39c12b5f2ae246b86a619c6e919221160a4a329ca2feb69e7c62ed7b7",
+      "bytes": 8219
     }
   },
   "renderer": {
@@ -43,7 +43,7 @@
   },
   "svg_lint": {
     "tool": "svg-linter 0.1.0",
-    "input_sha256": "1d0cfc67e3735d2c4fad656b6006ec759c89935572f8e9115c7d0e0b019dc1d0",
+    "input_sha256": "4b6596741f72bbe3c042e9ae3547a7fe2e9e435b60de60f4d57d0a30904b26c1",
     "catalog": {
       "schema_version": "svg-linter.catalog/v1",
       "catalog_version": "6",
