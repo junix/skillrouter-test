@@ -2,7 +2,7 @@
   "schema_version": "repository-architecture-infographic/v2",
   "meta": {
     "project": "skillrouter",
-    "snapshot": "1bd8ce3dd",
+    "snapshot": "def1400f8",
     "generated": "2026-08-30",
     "language": "zh-CN",
     "audience": "新贡献者、架构评审者与下游集成方",
@@ -188,16 +188,16 @@
     ],
     "recent_commits": [
       {
+        "date": "2026-08-30",
+        "subject": "docs(infographics): 刷新架构信息图 v2 — 现势证据、静态导入布线与自适应版式"
+      },
+      {
         "date": "2026-08-29",
         "subject": "docs: 更新架构文档"
       },
       {
         "date": "2026-08-29",
         "subject": "docs: 架构文档英文内容翻译为中文"
-      },
-      {
-        "date": "2026-08-26",
-        "subject": "docs: relocate architecture infographic to docs/infographics"
       }
     ],
     "test_files": 8,
