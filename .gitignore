@@ -6,3 +6,11 @@ __pycache__/
 .pytest_cache/
 uv.lock
 checkpoints/
+# --- appended by gitignore-sweep on 2026-09-03 ---
+*.pyo
+*.pyd
+.Python
+venv/
+*.egg-info/
+.mypy_cache/
+build/
