@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import json
 import os
+from importlib.metadata import version as _dist_version
 from pathlib import Path
 
 import typer
@@ -41,6 +42,21 @@ app = typer.Typer(
     epilog=f"Source: {_source_path()}",
 )
 console = Console()
+
+
+def _version_callback(value: bool | None) -> None:
+    if value:
+        typer.echo(f"skillrouter {_dist_version('skillrouter-test')}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    version: bool = typer.Option(
+        None, "--version", "-v", help="Print the installed version and exit.", is_eager=True, callback=_version_callback
+    ),
+) -> None:
+    """Test the SkillRouter retrieve-and-rerank models."""
 
 
 def _load_skills(path: Path | None):

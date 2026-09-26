@@ -309,3 +309,20 @@ def test_describe_help_lists_capabilities():
     result = runner.invoke(app, ["describe", "--help"])
     assert result.exit_code == 0
     assert "capabilities" in result.stdout.lower() or "self-describe" in result.stdout.lower()
+
+
+# --- version -----------------------------------------------------------------
+
+def test_version_flag_prints_cmd_and_manifest_semver():
+    from importlib.metadata import version as dist_version
+
+    result = runner.invoke(app, ["--version"])
+    assert result.exit_code == 0
+    assert result.stdout.strip() == f"skillrouter {dist_version('skillrouter-test')}"
+
+
+def test_short_version_flag_matches_long():
+    long = runner.invoke(app, ["--version"])
+    short = runner.invoke(app, ["-v"])
+    assert short.exit_code == 0
+    assert short.stdout == long.stdout
